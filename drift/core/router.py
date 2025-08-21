@@ -1,3 +1,10 @@
+"""
+
+Author: Aromal
+github: https://github.com/DeveloperAromal/
+
+"""
+
 class Router:
     
     def __init__(self):
@@ -6,7 +13,11 @@ class Router:
     def add_router(self, method, path, func):
         self.router[(method.upper(), path)] = func
         
-        
+    """
+    
+    GET Req Decorator
+    
+    """
         
     def get(self, path):
         
@@ -19,6 +30,11 @@ class Router:
         return decorator
     
     
+    """
+    
+    POST Req Decorator
+    
+    """
     
     def post(self, path):
         
