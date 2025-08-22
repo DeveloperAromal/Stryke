@@ -1,4 +1,4 @@
-from .log import Logging
+from .log import Logger
 
 
-__all__ = ["Logging"]
+__all__ = ["Logger"]

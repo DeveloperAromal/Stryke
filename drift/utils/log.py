@@ -1,49 +1,25 @@
-from colorama import Fore, Style, init
-import datetime
+from datetime import datetime
 
-init(autoreset=True)
+class Logger:
+    def __init__(self):
+        pass  
+
+    def _write_log(self, level: str, message: str):
+        timestamp = datetime.now().strftime("%d/%m/%y - %H:%M:%S")
+        log_entry = f"[{timestamp}] - {level.upper()} - {message}"
+        print(log_entry)
+
+    def info(self, message: str):
+        self._write_log("info", message)
+
+    def warn(self, message: str):
+        self._write_log("warn", message)
+
+    def error(self, message: str):
+        self._write_log("error", message)
+
+    def success(self, message: str):
+        self._write_log("success", message)
 
 
-
-"""
-
-This is just a custom logging function 
-
-"""
-class Logging:
-    def __init__(self, msg, msg_type="info"):
-        self.msg = msg
-        self.msg_type = msg_type.lower()
-
-    def log_symbol(self):
-
-        match self.msg_type:
-            case "success":
-                return "+"
-            case "info":
-                return "~"
-            case "warn":
-                return "!"
-            case "error":
-                return "x"
-            case _:
-                return "?"
-
-    def log_color(self):
-
-        match self.msg_type:
-            case "success":
-                return Fore.GREEN
-            case "info":
-                return Fore.CYAN
-            case "warn":
-                return Fore.YELLOW
-            case "error":
-                return Fore.RED
-            case _:
-                return Fore.WHITE
-
-    def log(self):
-        
-      
-        print(f"[{self.log_symbol()}] - [{datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")}] - {self.msg}")
+logger = Logger()
