@@ -1,20 +1,16 @@
 from utils.log import Logging
-from requests import Request
-
+from net.socket_server import SocketServer
 
 class Server:
     def __init__(self, router):
         self.router = router
+        self.sock_server = SocketServer()
         
         
-    def run(self, method, path):
+        
+    def run(self):
+        def handler(raw_requests):
+            return self.router.handle(raw_requests)
 
-        req = Request(method=method, path=path)
-        handler = self.router.resolve(path, method)
-        
-        if handler:
-            response = handler(req)
-            Logging(f"Response: {response}", "info").log()
             
-        else:
-            Logging(f"No route found for {path}", "warn").log
+        self.sock_server.start(handler)
