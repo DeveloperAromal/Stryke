@@ -1,8 +1,10 @@
 from core.router import Router
 from core.server import Server
+from middleware.reject_malicious_scripts import safe
 
 router = Router()
 
+@safe
 @router.get("/")
 def root():
     return "Hello root user"
