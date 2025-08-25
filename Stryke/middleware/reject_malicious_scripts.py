@@ -1,3 +1,9 @@
+"""
+Author: Aromal
+github: https://github.com/DeveloperAromal/
+
+"""
+
 from core.security import RouteSanitizer
 from utils.log import logger
 from functools import wraps
@@ -8,7 +14,6 @@ def safe(func):
     @wraps(func)
                 
     def wrapper(*args, **kwargs):
-        
         
         if args:
             path = args[0]

@@ -1,3 +1,8 @@
+"""
+Author: Aromal
+github: https://github.com/DeveloperAromal/
+
+"""
 from .net.socket_server import SocketServer
 from middleware.reject_malicious_scripts import RouteSanitizer
 

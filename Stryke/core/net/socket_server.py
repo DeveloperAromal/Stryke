@@ -1,3 +1,9 @@
+"""
+Author: Aromal
+github: https://github.com/DeveloperAromal/
+
+"""
+
 import socket
 import json
 from utils.log import logger
